@@ -1,7 +1,8 @@
 import { FC } from "react";
+import Main from "./UI/main";
 
 const App: FC = () => {
-  return <div>Hello, world!</div>;
+  return <Main />;
 };
 
 export default App;
