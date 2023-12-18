@@ -21,6 +21,14 @@ div {
   outline: 1px red solid;
 } */
 
+*:focus {
+  outline: 0;
+}
+
+*:focus-visible {
+  outline: 1px solid var(--main-color-text);
+}
+
 a {
   text-decoration: none;
   color: inherit;

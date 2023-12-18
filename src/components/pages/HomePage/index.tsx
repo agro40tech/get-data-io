@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import "./index.css";
+import SubmitButton from "@/components/UI/buttons/SubmitButton";
 
 const HomePage: FC = () => {
   return (
@@ -20,9 +21,13 @@ const HomePage: FC = () => {
             required
           />
         </p>
-        <button className="search-form__button-submit" type="submit">
-          Найти
-        </button>
+        <SubmitButton
+          buttonText="Найти"
+          className="search-form__button-submit"
+          padding="10px 20px"
+          maxHeight="45px"
+          minWidth="155px"
+        />
       </form>
     </section>
   );
