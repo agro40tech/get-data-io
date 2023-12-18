@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.header__title-link {
+  font-family: var(--accent-font-family);
+  font-size: var(--logo-font-size);
+  color: var(--accent-color-text);
+}
+
+.nav-menu__list {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}

@@ -1,0 +1,12 @@
+:root {
+  --accent-font-family: "Rubik Doodle Shadow";
+  --main-font-family: "Raleway";
+
+  --logo-font-size: clamp(0.938rem, 0.875rem + 0.31vw, 1.25rem);
+  --main-font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+
+  --main-font-weight: 500;
+
+  --main-color-text: white;
+  --accent-color-text: rgb(202, 183, 37);
+}

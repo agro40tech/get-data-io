@@ -1,0 +1,57 @@
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* * {
+  outline: 1px red solid;
+} */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* body */
+.page {
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+  font-weight: var(--main-font-weight);
+  color: var(--main-color-text);
+
+  /* Фон страницы */
+  background: rgb(36, 36, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(36, 36, 36, 1) 0%,
+    rgba(121, 42, 152, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Прибиваем шапку к верху футер к низу */
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}

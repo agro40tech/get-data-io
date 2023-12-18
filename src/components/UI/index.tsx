@@ -8,7 +8,9 @@ const Layout: FC = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <main className="main">
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
