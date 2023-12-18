@@ -55,3 +55,9 @@ ul {
   justify-content: space-between;
   min-height: 100vh;
 }
+
+@media (max-width: 768px) {
+  #root {
+    min-height: calc(100vh - 60px);
+  }
+}

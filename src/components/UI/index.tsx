@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Outlet } from "react-router-dom";
 
+import "./index.css";
 import Header from "./header";
 import Footer from "./footer";
 
