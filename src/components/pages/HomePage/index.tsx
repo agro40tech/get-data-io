@@ -4,9 +4,11 @@ import "./index.css";
 import SubmitButton from "@/components/UI/buttons/SubmitButton";
 
 const HomePage: FC = () => {
+  const redirectPage: string = "/viewjob";
+
   return (
     <section className="main__home-page">
-      <form action="" className="main__search-form">
+      <form action={redirectPage} className="main__search-form">
         <p className="search-form__wrapper">
           <label className="search-form__label" htmlFor="search">
             Какое направление вас интересует?
@@ -18,6 +20,8 @@ const HomePage: FC = () => {
             id="search"
             autoComplete="off"
             placeholder="Какова ваша профессия?"
+            minLength={5}
+            maxLength={20}
             required
           />
         </p>

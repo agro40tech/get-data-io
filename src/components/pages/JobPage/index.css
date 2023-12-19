@@ -1,0 +1,10 @@
+.job-info__list {
+  display: flex;
+  gap: 50px;
+}
+
+.job-info__item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

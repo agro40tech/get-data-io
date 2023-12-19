@@ -10,4 +10,7 @@
   --main-color-text: white;
   --main-background-color: #2f1938;
   --accent-color-text: rgb(199, 196, 44);
+  --scrollbar-color: rgba(143, 143, 143, 0.5);
+
+  --arctcle-background-color: rgba(47, 25, 56, 0.7);
 }
