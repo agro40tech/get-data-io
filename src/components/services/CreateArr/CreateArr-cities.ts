@@ -1,16 +1,9 @@
-import arrSorted from "../arrServices/ArrSorted";
+import sortedArr from "../arrServices/SortedArr";
 import countOccurrences from "../arrServices/CountOccurences";
 import removeDuplicates from "../arrServices/RemoveDuplicates";
 
-type City = {
-  name: string;
-  repeats: number;
-};
-
-type ArrCities = City[];
-
-const createArrCities = (arr: any[]): ArrCities => {
-  const arrCities: ArrCities = [];
+const createArrCities = (arr: any[]) => {
+  const arrCities: any[] = [];
 
   arr.forEach((element) => {
     const repeats = countOccurrences(
@@ -18,13 +11,22 @@ const createArrCities = (arr: any[]): ArrCities => {
       element.area.name
     );
 
-    const city: City = { name: element.area.name, repeats };
+    const city = { name: element.area.name, repeats };
     arrCities.push(city);
   });
 
   const arrCitiesClean = removeDuplicates(arrCities);
 
-  const result = arrSorted(arrCitiesClean);
+  const arrCitiesSorted = sortedArr(arrCitiesClean);
+
+  const maxRepeats = Math.max(
+    ...arrCitiesSorted.map((element) => element.repeats)
+  );
+
+  const result = arrCitiesSorted.map((element) => ({
+    ...element,
+    top: element.repeats === maxRepeats,
+  }));
 
   return result;
 };

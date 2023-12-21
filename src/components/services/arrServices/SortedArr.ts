@@ -5,7 +5,7 @@ type typeParameters = {
 
 type typeArrSorted = typeParameters[];
 
-const arrSorted = (arr: typeArrSorted) => {
+const sortedArr = (arr: typeArrSorted) => {
   const result = arr.sort((a, b) => {
     if (a.repeats === b.repeats) {
       a.name = a.name.toLowerCase();
@@ -33,4 +33,4 @@ const arrSorted = (arr: typeArrSorted) => {
   return result;
 };
 
-export default arrSorted;
+export default sortedArr;

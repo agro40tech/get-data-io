@@ -1,4 +1,4 @@
-import arrSorted from "../arrServices/ArrSorted";
+import sortedArr from "../arrServices/SortedArr";
 import countOccurrences from "../arrServices/CountOccurences";
 import removeDuplicates from "../arrServices/RemoveDuplicates";
 
@@ -21,11 +21,10 @@ const createArrFormatJobs = (arr: any[]): ArrFormatJobs => {
     const job: Job = { name: element.schedule.name, repeats };
     arrFormatJobs.push(job);
   });
-  console.log(arrFormatJobs);
 
-  const arrFormatJobsClean = removeDuplicates(arrFormatJobs);
+  const arrFormatJobsClean: Job[] = removeDuplicates(arrFormatJobs);
 
-  const result = arrSorted(arrFormatJobsClean);
+  const result: Job[] = sortedArr(arrFormatJobsClean);
 
   return result;
 };

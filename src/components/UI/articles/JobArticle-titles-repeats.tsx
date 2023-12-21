@@ -1,18 +1,18 @@
 import "./JobArticle-titles-repeats.css";
 
 interface IJobArticle {
-  arrData: { name: string; repeats: number }[];
+  arrData: { name: string; repeats: number; top?: boolean }[];
   articleTitle: string;
 }
 
 interface IItemArticle {
-  element: { name: string; repeats: number };
+  element: { name: string; repeats: number; top?: boolean };
 }
 
 const ItemArticle: React.FC<IItemArticle> = ({ element }) => {
   return (
     <li className="article__item-vacancy">
-      {element.name}
+      {element.name} {element.top ? "+" : ""}
       <span className="item-vacancy__city-repeats">{element.repeats}</span>
     </li>
   );
