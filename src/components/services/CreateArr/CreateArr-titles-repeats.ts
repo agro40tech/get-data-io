@@ -1,12 +1,7 @@
 import sortedArr from "../arrServices/SortedArr";
 import countOccurrences from "../arrServices/CountOccurences";
 import removeDuplicates from "../arrServices/RemoveDuplicates";
-
-// Функция для получения значения объекта по строковому пути
-const getObjectValue = (obj: any, path: string) => {
-  const pathSegments = path.split(".");
-  return pathSegments.reduce((currentObj, key) => currentObj[key], obj);
-};
+import getObjectValue from "../arrServices/GetObjectValue";
 
 // Параметр path добавлен для выбора пути до объекта
 const createArr = (arr: any[], path: string) => {

@@ -7,11 +7,18 @@ import JobArticle, {
 
 import vacansys from "@/components/services/data/vacansys";
 import createArrTitlesRepeats from "@/components/services/CreateArr/CreateArr-titles-repeats";
+import createArrTitlesLinks from "@/components/services/CreateArr/CreateArr-title-links";
 
 const JobPage: FC = () => {
   const arrCities = createArrTitlesRepeats(vacansys, "area.name");
   const arrFormatJobs = createArrTitlesRepeats(vacansys, "schedule.name");
   const arrExpJob = createArrTitlesRepeats(vacansys, "experience.name");
+
+  const arrVacancyLinks = createArrTitlesLinks(
+    vacansys,
+    "name",
+    "alternate_url"
+  );
 
   return (
     <section className="main__job-info">
@@ -38,6 +45,13 @@ const JobPage: FC = () => {
             articleTitle="Популярные требования к опыту работы"
             arrData={arrExpJob}
             typeArticleItem={enumTypesArticleItem.titleRepeats}
+          />
+        </li>
+        <li className="job-info__item">
+          <JobArticle
+            articleTitle="Вакансии"
+            arrData={arrVacancyLinks}
+            typeArticleItem={enumTypesArticleItem.titleLinks}
           />
         </li>
       </ul>

@@ -34,33 +34,3 @@
   flex-direction: column;
   gap: 10px;
 }
-
-.article__item-vacancy {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  padding: 5px;
-}
-
-.article__item-vacancy::before {
-  content: "";
-  width: 100%;
-  height: 1px;
-  background-color: var(--main-color-text);
-  opacity: 0.1;
-  position: absolute;
-  bottom: 0;
-}
-
-.item-vacancy__repeats {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--article-citys-repeats-bcg-color);
-  font-family: monospace, serif;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 5px 10px 5px 10px;
-  max-width: 28px;
-  border-radius: 50%;
-}

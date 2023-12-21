@@ -1,3 +1,5 @@
+import "./index.css";
+
 interface IItemArticle {
   element: { name: string; repeats: number; top?: boolean };
 }
