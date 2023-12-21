@@ -1,26 +1,29 @@
-import "./JobArticle.css";
+import "./JobArticle-titles-repeats.css";
 
-// Интерфейсы
 interface IJobArticle {
-  arrData: (string | number)[];
+  arrData: { name: string; repeats: number }[];
   articleTitle: string;
 }
 
 interface IItemArticle {
-  element: string | number;
+  element: { name: string; repeats: number };
 }
 
-// Элемент списка в карточке
 const ItemArticle: React.FC<IItemArticle> = ({ element }) => {
-  return <li className="article__item-vacancy">{element}</li>;
+  return (
+    <li className="article__item-vacancy">
+      {element.name}
+      <span className="item-vacancy__city-repeats">{element.repeats}</span>
+    </li>
+  );
 };
 
-// Карточка
-const JobArticle: React.FC<IJobArticle> = ({ arrData, articleTitle }) => {
-  // Массив элементов списка карточки
+const JobArticleTitlesRepeats: React.FC<IJobArticle> = ({
+  arrData,
+  articleTitle,
+}) => {
   const arrDataArticle: React.ReactNode[] = [];
 
-  // Сборка элементов списка карточки
   arrData.forEach((element, index) => {
     return arrDataArticle.push(<ItemArticle element={element} key={index} />);
   });
@@ -35,4 +38,4 @@ const JobArticle: React.FC<IJobArticle> = ({ arrData, articleTitle }) => {
   );
 };
 
-export default JobArticle;
+export default JobArticleTitlesRepeats;

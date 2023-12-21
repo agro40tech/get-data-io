@@ -44,8 +44,9 @@ ul {
   font-size: var(--main-font-size);
   font-weight: var(--main-font-weight);
   color: var(--main-color-text);
+  background-color: #502a5e;
 
-  /* Фон страницы */
+  /* Фон страницы
   background: rgb(36, 36, 36);
   background: linear-gradient(
     0deg,
@@ -53,7 +54,7 @@ ul {
     rgba(121, 42, 152, 1) 100%
   );
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; */
 }
 
 /* Прибиваем шапку к верху футер к низу */

@@ -1,25 +1,30 @@
 import { FC } from "react";
 
 import "./index.css";
-import JobArticle from "@/components/UI/articles/JobArticle";
+import JobArticleTitlesRepeats from "@/components/UI/articles/JobArticle-titles-repeats";
+import CreateArrCities from "@/components/services/CreateArr/CreateArr-cities";
+
 import vacansys from "@/components/services/data/vacansys";
-import CreateArrCitys from "@/components/services/CreateArr/CreateArr-citys";
-import CreateArrName from "@/components/services/CreateArr/CreateArr-name";
+import createArrFormatJobs from "@/components/services/CreateArr/CreateArr-format-job";
 
 const JobPage: FC = () => {
-  // Создания массива городов через микросервис
-  const arrCitys = CreateArrCitys(vacansys);
-  // Создание массива назавний вакансий через микросервис
-  const arrNames = CreateArrName(vacansys);
+  const arrCities = CreateArrCities(vacansys);
+  const arrFormatJobs = createArrFormatJobs(vacansys);
 
   return (
     <section className="main__job-info">
       <ul className="job-info__list">
         <li className="job-info__item">
-          <JobArticle articleTitle="Города вакансий" arrData={arrCitys} />
+          <JobArticleTitlesRepeats
+            articleTitle="Популярные города вашего направления"
+            arrData={arrCities}
+          />
         </li>
         <li className="job-info__item">
-          <JobArticle arrData={arrNames} articleTitle="Название вакансий" />
+          <JobArticleTitlesRepeats
+            articleTitle="Популярные форматы работы"
+            arrData={arrFormatJobs}
+          />
         </li>
       </ul>
     </section>
