@@ -2,16 +2,14 @@ import { FC } from "react";
 
 import "./index.css";
 import JobArticleTitlesRepeats from "@/components/UI/articles/JobArticle-titles-repeats";
-import createArrCities from "@/components/services/CreateArr/CreateArr-cities";
 
 import vacansys from "@/components/services/data/vacansys";
-import createArrFormatJobs from "@/components/services/CreateArr/CreateArr-format-job";
-import createArrExptJob from "@/components/services/CreateArr/CreateArr-exp-job";
+import createArrTitlesRepeats from "@/components/services/CreateArr/CreateArr-titles-repeats";
 
 const JobPage: FC = () => {
-  const arrCities = createArrCities(vacansys);
-  const arrFormatJobs = createArrFormatJobs(vacansys);
-  const arrExpJob = createArrExptJob(vacansys);
+  const arrCities = createArrTitlesRepeats(vacansys, "area.name");
+  const arrFormatJobs = createArrTitlesRepeats(vacansys, "schedule.name");
+  const arrExpJob = createArrTitlesRepeats(vacansys, "experience.name");
 
   return (
     <section className="main__job-info">
