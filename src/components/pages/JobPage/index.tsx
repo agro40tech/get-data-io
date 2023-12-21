@@ -1,7 +1,9 @@
 import { FC } from "react";
 
 import "./index.css";
-import JobArticleTitlesRepeats from "@/components/UI/articles/JobArticle-titles-repeats";
+import JobArticle, {
+  enumTypesArticleItem,
+} from "@/components/UI/articles/JobArticle";
 
 import vacansys from "@/components/services/data/vacansys";
 import createArrTitlesRepeats from "@/components/services/CreateArr/CreateArr-titles-repeats";
@@ -18,21 +20,24 @@ const JobPage: FC = () => {
       </h2>
       <ul className="job-info__list">
         <li className="job-info__item">
-          <JobArticleTitlesRepeats
+          <JobArticle
             articleTitle="Популярные города вашего направления"
             arrData={arrCities}
+            typeArticleItem={enumTypesArticleItem.titleRepeats}
           />
         </li>
         <li className="job-info__item">
-          <JobArticleTitlesRepeats
+          <JobArticle
             articleTitle="Популярные форматы рабочего дня"
             arrData={arrFormatJobs}
+            typeArticleItem={enumTypesArticleItem.titleRepeats}
           />
         </li>
         <li className="job-info__item">
-          <JobArticleTitlesRepeats
+          <JobArticle
             articleTitle="Популярные требования к опыту работы"
             arrData={arrExpJob}
+            typeArticleItem={enumTypesArticleItem.titleRepeats}
           />
         </li>
       </ul>
