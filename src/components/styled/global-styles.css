@@ -44,17 +44,13 @@ ul {
   font-size: var(--main-font-size);
   font-weight: var(--main-font-weight);
   color: var(--main-color-text);
-  background-color: #502a5e;
-
-  /* Фон страницы
-  background: rgb(36, 36, 36);
+  /* background-color: rgb(24, 24, 24); */
+  background: rgb(2, 0, 36);
   background: linear-gradient(
     0deg,
-    rgba(36, 36, 36, 1) 0%,
-    rgba(121, 42, 152, 1) 100%
+    rgba(2, 0, 36, 1) 43%,
+    rgba(80, 42, 94, 1) 100%
   );
-  background-repeat: no-repeat;
-  background-attachment: fixed; */
 }
 
 /* Прибиваем шапку к верху футер к низу */

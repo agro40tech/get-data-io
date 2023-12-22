@@ -8,15 +8,17 @@ export enum enumTypesArticleItem {
 }
 
 interface IJobArticle {
-  arrData: { name: string; repeats: number; top?: boolean }[];
+  arrData: any[];
   articleTitle: string;
   typeArticleItem: enumTypesArticleItem;
+  accentClassName?: string;
 }
 
 const JobArticle: React.FC<IJobArticle> = ({
   arrData,
   articleTitle,
   typeArticleItem,
+  accentClassName,
 }) => {
   const arrDataArticle: React.ReactNode[] = [];
 
@@ -41,7 +43,12 @@ const JobArticle: React.FC<IJobArticle> = ({
   return (
     <>
       <h3 className="job-info__article-title">{articleTitle}</h3>
-      <article className="job-info__article">
+      <article
+        className={`${
+          accentClassName
+            ? `job-info__article ${accentClassName}`
+            : "job-info__article"
+        }`}>
         <ul className="article__list">{arrDataArticle}</ul>
       </article>
     </>

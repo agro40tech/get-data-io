@@ -1,29 +1,34 @@
-.article__item-vacancy {
+.article__item {
   display: flex;
   justify-content: space-between;
   position: relative;
-  padding: 5px;
+  padding: 5px 10px 5px 5px;
 }
 
-.article__item-vacancy::before {
+.article__item::before {
   content: "";
-  width: 100%;
+  width: 95%;
   height: 1px;
-  background-color: var(--main-color-text);
-  opacity: 0.1;
+  background-color: var(--scrollbar-color);
+  opacity: 0.2;
   position: absolute;
   bottom: 0;
 }
 
-.item-vacancy__repeats {
+.item-top {
+  color: var(--accent-color-text);
+}
+
+.item__repeats {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--article-citys-repeats-bcg-color);
+  color: var(--main-color-text);
   font-family: monospace, serif;
   font-size: 15px;
   font-weight: 500;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px;
   max-width: 28px;
   border-radius: 50%;
 }

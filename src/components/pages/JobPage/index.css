@@ -6,14 +6,19 @@
 }
 
 .job-info__list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 50px;
 }
 
 .job-info__item {
   display: flex;
   flex-direction: column;
+  min-width: 295px;
   gap: 20px;
+}
+
+.item-vacancy {
+  grid-column-start: span 2;
+  grid-row: 1 / 3;
 }

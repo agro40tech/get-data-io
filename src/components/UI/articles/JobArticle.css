@@ -1,5 +1,4 @@
 .job-info__article-title {
-  max-width: 400px;
   font-size: 25px;
   font-weight: 400;
   text-align: center;
@@ -9,28 +8,35 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 400px;
-  height: 400px;
-  overflow: auto;
+  min-height: 300px;
+  max-height: 300px;
   background-color: var(--arctcle-background-color);
   border-radius: 10px;
 }
 
-.job-info__article::-webkit-scrollbar {
-  width: 10px;
-}
-
-.job-info__article::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.job-info__article::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-color);
-  border-radius: 5px;
+/* Смена настроек высоты для карточки с вакансиями */
+.article-vacancy {
+  min-height: 700px;
+  max-height: 700px;
 }
 
 .article__list {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.article__list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.article__list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.article__list::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 2px;
 }

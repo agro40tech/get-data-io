@@ -1,6 +1,6 @@
 :root {
   --accent-font-family: "Rubik Doodle Shadow";
-  --main-font-family: "Comfortaa";
+  --main-font-family: "Mulish";
 
   --logo-font-size: clamp(0.938rem, 0.875rem + 0.31vw, 1.25rem);
   --main-font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
@@ -10,8 +10,8 @@
   --main-color-text: white;
   --main-background-color: #2f1938;
   --accent-color-text: rgb(199, 196, 44);
-  --scrollbar-color: rgba(143, 143, 143, 0.5);
+  --scrollbar-color: rgba(143, 143, 143, 0.3);
 
-  --arctcle-background-color: rgba(47, 25, 56, 0.7);
+  --arctcle-background-color: rgba(86, 86, 86, 0.2);
   --article-citys-repeats-bcg-color: rgba(134, 70, 159, 0.7);
 }

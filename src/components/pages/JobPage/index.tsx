@@ -22,36 +22,37 @@ const JobPage: FC = () => {
 
   return (
     <section className="main__job-info">
-      <h2 className="main__title">
+      {/* <h2 className="main__title">
         Мы собрали данные из {vacansys.length} вакансий вот результаты:
-      </h2>
+      </h2> */}
       <ul className="job-info__list">
+        <li className="job-info__item item-vacancy">
+          <JobArticle
+            articleTitle="Вакансии"
+            arrData={arrVacancyLinks}
+            typeArticleItem={enumTypesArticleItem.titleLinks}
+            accentClassName="article-vacancy"
+          />
+        </li>
         <li className="job-info__item">
           <JobArticle
-            articleTitle="Популярные города вашего направления"
+            articleTitle="Города вакансий"
             arrData={arrCities}
             typeArticleItem={enumTypesArticleItem.titleRepeats}
           />
         </li>
         <li className="job-info__item">
           <JobArticle
-            articleTitle="Популярные форматы рабочего дня"
+            articleTitle="Формат рабочего дня"
             arrData={arrFormatJobs}
             typeArticleItem={enumTypesArticleItem.titleRepeats}
           />
         </li>
         <li className="job-info__item">
           <JobArticle
-            articleTitle="Популярные требования к опыту работы"
+            articleTitle="Опыт работы"
             arrData={arrExpJob}
             typeArticleItem={enumTypesArticleItem.titleRepeats}
-          />
-        </li>
-        <li className="job-info__item">
-          <JobArticle
-            articleTitle="Вакансии"
-            arrData={arrVacancyLinks}
-            typeArticleItem={enumTypesArticleItem.titleLinks}
           />
         </li>
       </ul>
