@@ -8,9 +8,14 @@ import JobArticle, {
 import vacansys from "@/components/services/data/vacansys";
 import createArrTitlesRepeats from "@/components/services/CreateArr/CreateArr-titles-repeats";
 import createArrTitlesLinks from "@/components/services/CreateArr/CreateArr-titles-links";
+import createArrSalary from "@/components/services/arrServices/CreateArr-salary";
 
 const JobPage: FC = () => {
-  const arrCities = createArrTitlesRepeats(vacansys, "area.name");
+  const arrCities = createArrTitlesRepeats(
+    vacansys,
+    "address.city",
+    "area.name"
+  );
   const arrFormatJobs = createArrTitlesRepeats(vacansys, "schedule.name");
   const arrExpJob = createArrTitlesRepeats(vacansys, "experience.name");
 
@@ -19,6 +24,15 @@ const JobPage: FC = () => {
     "name",
     "alternate_url"
   );
+
+  const arrSalaryCreate = createArrSalary(
+    vacansys,
+    "salary.from",
+    "salary.to",
+    "salary.currency"
+  );
+
+  const arrSalary = createArrTitlesRepeats(arrSalaryCreate, "");
 
   return (
     <section className="main__job-info">
@@ -52,6 +66,13 @@ const JobPage: FC = () => {
           <JobArticle
             articleTitle="Опыт работы"
             arrData={arrExpJob}
+            typeArticleItem={enumTypesArticleItem.titleRepeats}
+          />
+        </li>
+        <li className="job-info__item">
+          <JobArticle
+            articleTitle="Зарплата"
+            arrData={arrSalary}
             typeArticleItem={enumTypesArticleItem.titleRepeats}
           />
         </li>

@@ -1,0 +1,51 @@
+import getObjectValue from "./GetObjectValue";
+
+const createSalary = (
+  element: any,
+  pathSalaryFrom: string,
+  pathSalaryTo: string,
+  pathSalaryCurrency: string
+) => {
+  let salary = "Зарплата не указана";
+  const salaryCurrency = getObjectValue(element, pathSalaryCurrency);
+
+  if (salaryCurrency) {
+    const salaryFrom = getObjectValue(element, pathSalaryFrom);
+    const salaryTo = getObjectValue(element, pathSalaryTo);
+
+    salary =
+      salaryFrom && salaryTo
+        ? `от ${salaryFrom} до ${salaryTo} ${salaryCurrency}`
+        : salaryFrom
+        ? `от ${salaryFrom} ${salaryCurrency}`
+        : salaryTo
+        ? `до ${salaryTo} ${salaryCurrency}`
+        : salary;
+  }
+
+  return salary;
+};
+
+const createArrSalary = (
+  propsArr: any[],
+  pathSalaryFrom: string,
+  pathSalaryTo: string,
+  pathSalaryCurrency: string
+) => {
+  const resultArr: any[] = [];
+
+  propsArr.forEach((element) => {
+    const salary = createSalary(
+      element,
+      pathSalaryFrom,
+      pathSalaryTo,
+      pathSalaryCurrency
+    );
+
+    return resultArr.push(salary);
+  });
+
+  return resultArr;
+};
+
+export default createArrSalary;

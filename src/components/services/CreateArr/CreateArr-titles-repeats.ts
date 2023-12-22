@@ -3,38 +3,43 @@ import countOccurrences from "../arrServices/CountOccurences";
 import removeDuplicates from "../arrServices/RemoveDuplicates";
 import getObjectValue from "../arrServices/GetObjectValue";
 
-// Параметр path добавлен для выбора пути до объекта
-const createArr = (arr: any[], path: string) => {
-  const resultArr: any[] = [];
-
-  arr.forEach((element) => {
+const createArr = (arr: any[], path: string, sparePath?: string) => {
+  return arr.map((element) => {
+    const value =
+      getObjectValue(element, path) ||
+      getObjectValue(element, sparePath as string);
     const repeats = countOccurrences(
-      arr.map((element) => getObjectValue(element, path)),
-      getObjectValue(element, path)
+      arr.map(
+        (item) =>
+          getObjectValue(item, path) ||
+          getObjectValue(item, sparePath as string)
+      ),
+      path !== "" ? value : element
     );
 
-    const object = { name: getObjectValue(element, path), repeats };
-    resultArr.push(object);
+    return {
+      name: path !== "" ? value : element,
+      repeats,
+    };
   });
-
-  return resultArr;
 };
 
-const createArrTitlesRepeats = (propsArr: any[], path: string) => {
-  const arr = createArr(propsArr, path);
-
+const createArrTitlesRepeats = (
+  propsArr: any[],
+  path: string,
+  sparePath?: string
+) => {
+  const arr = sparePath
+    ? createArr(propsArr, path, sparePath)
+    : createArr(propsArr, path);
   const arrClean = removeDuplicates(arr);
-
   const arrSorted = sortedArr(arrClean);
-
   const maxRepeats = Math.max(...arrSorted.map((element) => element.repeats));
 
-  const resultArr = arrSorted.map((element) => ({
+  return arrSorted.map((element) => ({
     ...element,
     top: element.repeats === maxRepeats,
   }));
-
-  return resultArr;
 };
 
 export default createArrTitlesRepeats;

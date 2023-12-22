@@ -1,7 +1,15 @@
-// Функция для получения значения объекта по строковому пути
 const getObjectValue = (obj: any, path: string) => {
+  if (!path) {
+    return obj;
+  }
   const pathSegments = path.split(".");
-  return pathSegments.reduce((currentObj, key) => currentObj[key], obj);
+  const result = pathSegments.reduce((currentObj, key) => {
+    return currentObj && currentObj[key] !== undefined
+      ? currentObj[key]
+      : undefined;
+  }, obj);
+
+  return result;
 };
 
 export default getObjectValue;
