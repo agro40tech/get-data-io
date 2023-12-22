@@ -7,7 +7,7 @@ import JobArticle, {
 
 import vacansys from "@/components/services/data/vacansys";
 import createArrTitlesRepeats from "@/components/services/CreateArr/CreateArr-titles-repeats";
-import createArrTitlesLinks from "@/components/services/CreateArr/CreateArr-title-links";
+import createArrTitlesLinks from "@/components/services/CreateArr/CreateArr-titles-links";
 
 const JobPage: FC = () => {
   const arrCities = createArrTitlesRepeats(vacansys, "area.name");
