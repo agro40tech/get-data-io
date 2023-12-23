@@ -71,7 +71,7 @@ const JobPage: FC = () => {
         </li>
         <li className="job-info__item">
           <JobArticle
-            articleTitle="Зарплата"
+            articleTitle="Зарплата в месяц"
             arrData={arrSalary}
             typeArticleItem={enumTypesArticleItem.titleRepeats}
           />

@@ -10,8 +10,16 @@ const createSalary = (
   const salaryCurrency = getObjectValue(element, pathSalaryCurrency);
 
   if (salaryCurrency) {
-    const salaryFrom = getObjectValue(element, pathSalaryFrom);
-    const salaryTo = getObjectValue(element, pathSalaryTo);
+    let salaryFrom = getObjectValue(element, pathSalaryFrom);
+    let salaryTo = getObjectValue(element, pathSalaryTo);
+
+    if (salaryFrom >= 10000) {
+      salaryFrom = salaryFrom / 1000 + "к.";
+    }
+
+    if (salaryTo >= 10000) {
+      salaryTo = salaryTo / 1000 + "к.";
+    }
 
     salary =
       salaryFrom && salaryTo
