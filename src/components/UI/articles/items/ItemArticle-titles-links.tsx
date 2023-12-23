@@ -1,7 +1,7 @@
 import "./index.css";
 
 export interface IItemTitleLinks {
-  element: { name: string; link: string };
+  element: { name: string; link?: string };
 }
 
 const ItemArticleTitleLinks: React.FC<IItemTitleLinks> = ({ element }) => {

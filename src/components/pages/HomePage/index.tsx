@@ -26,7 +26,7 @@ const HomePage: FC = () => {
             autoComplete="off"
             placeholder="Какова ваша профессия?"
             minLength={5}
-            maxLength={20}
+            maxLength={40}
             required
           />
         </p>

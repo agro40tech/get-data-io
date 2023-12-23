@@ -2,12 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
+  gap: 30px;
+}
+
+.job-info__title {
+  font-size: clamp(1.25rem, 1.188rem + 0.31vw, 1.563rem);
+  align-self: start;
 }
 
 .job-info__list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 295px);
   gap: 50px;
 }
 
@@ -21,4 +26,5 @@
 .item-vacancy {
   grid-column-start: span 2;
   grid-row: 1 / 3;
+  max-width: unset;
 }

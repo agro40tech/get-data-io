@@ -7,7 +7,7 @@ const createArrs = (arr: any[]) => {
   const arrFormatJobs = createArrTitlesRepeats(arr, "schedule.name");
   const arrExpJob = createArrTitlesRepeats(arr, "experience.name");
 
-  const arrVacancyLinks = createArrTitlesLinks(arr, "name", "alternate_url ");
+  const arrVacancyLinks = createArrTitlesLinks(arr, "name", "alternate_url");
 
   const arrSalaryCreate = createArrSalary(
     arr,

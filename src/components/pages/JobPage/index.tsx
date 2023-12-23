@@ -1,11 +1,11 @@
 import { FC, useEffect, useState } from "react";
+import axios from "axios";
 
 import "./index.css";
 import JobArticle, {
   enumTypesArticleItem,
 } from "@/components/UI/articles/JobArticle";
 
-import vacansys from "@/components/services/data/vacansys";
 import createArrs from "./CreateArrs";
 
 const JobPage: FC = () => {
@@ -17,23 +17,33 @@ const JobPage: FC = () => {
       try {
         setLoading(true);
 
-        // Получение данных из localStorage
         const retString: any = localStorage.getItem("vacansys");
         const retArr = JSON.parse(retString);
 
-        // Если данных в localStorage нет, то делаем асинхронный запрос
         if (!retArr || retArr.length === 0) {
-          // Имитация асинхронной загрузки данных
+          const currentUrl = window.location.href;
+          const searchParams = new URLSearchParams(currentUrl.split("?")[1]);
+          const searchValue = searchParams.get("search");
+
           await new Promise((resolve) => setTimeout(resolve, 15000));
 
-          localStorage.setItem("vacansys", JSON.stringify(vacansys));
-          setVacancysArr(vacansys);
+          const response: any = await axios.get(
+            `https://api.hh.ru/vacancies?text=${searchValue}&per_page=100`,
+            {
+              headers: {
+                "User-Agent": "Get-Data-io/1.0 (volkovvova67@gmail.com)",
+              },
+            }
+          );
+          setVacancysArr(response.data.items);
+          localStorage.setItem("vacansys", JSON.stringify(response.data.items));
+          console.log("request successful");
         } else {
           // Используем данные из localStorage
           setVacancysArr(retArr);
         }
       } catch (error) {
-        console.error("Ошибка загрузки данных:", error);
+        console.error("Error request data api:", error);
       } finally {
         setLoading(false);
       }
@@ -47,8 +57,8 @@ const JobPage: FC = () => {
 
   return (
     <section className="main__job-info">
-      {/* <h2 className="main__title">
-        Мы собрали данные из {vacansys.length} вакансий вот результаты:
+      {/* <h2 className="job-info__title">
+        Мы собрали данные из {retArr.length} вакансий вот результаты:
       </h2> */}
       <ul className="job-info__list">
         <li className="job-info__item item-vacancy">
