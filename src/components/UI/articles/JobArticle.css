@@ -12,6 +12,22 @@
   max-height: 300px;
   background-color: var(--arctcle-background-color);
   border-radius: 10px;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.job-info__article::-webkit-scrollbar {
+  width: 3px;
+}
+
+.job-info__article::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.job-info__article::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 2px;
 }
 
 /* Смена настроек высоты для карточки с вакансиями */
@@ -24,19 +40,326 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
-.article__list::-webkit-scrollbar {
-  width: 3px;
+.preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  animation: preloader 2s infinite linear alternate-reverse;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) var(--preloader-loading),
+    rgba(255, 255, 255, 0.1) 100%
+  );
 }
 
-.article__list::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.article__list::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-color);
-  border-radius: 2px;
+@keyframes preloader {
+  0% {
+    --preloader-loading: 0%;
+  }
+  1% {
+    --preloader-loading: 1%;
+  }
+  2% {
+    --preloader-loading: 2%;
+  }
+  3% {
+    --preloader-loading: 3%;
+  }
+  4% {
+    --preloader-loading: 4%;
+  }
+  5% {
+    --preloader-loading: 5%;
+  }
+  6% {
+    --preloader-loading: 6%;
+  }
+  7% {
+    --preloader-loading: 7%;
+  }
+  8% {
+    --preloader-loading: 8%;
+  }
+  9% {
+    --preloader-loading: 9%;
+  }
+  10% {
+    --preloader-loading: 10%;
+  }
+  11% {
+    --preloader-loading: 11%;
+  }
+  12% {
+    --preloader-loading: 12%;
+  }
+  13% {
+    --preloader-loading: 13%;
+  }
+  14% {
+    --preloader-loading: 14%;
+  }
+  15% {
+    --preloader-loading: 15%;
+  }
+  16% {
+    --preloader-loading: 16%;
+  }
+  17% {
+    --preloader-loading: 17%;
+  }
+  18% {
+    --preloader-loading: 18%;
+  }
+  19% {
+    --preloader-loading: 19%;
+  }
+  20% {
+    --preloader-loading: 20%;
+  }
+  21% {
+    --preloader-loading: 21%;
+  }
+  22% {
+    --preloader-loading: 22%;
+  }
+  23% {
+    --preloader-loading: 23%;
+  }
+  24% {
+    --preloader-loading: 24%;
+  }
+  25% {
+    --preloader-loading: 25%;
+  }
+  26% {
+    --preloader-loading: 26%;
+  }
+  27% {
+    --preloader-loading: 27%;
+  }
+  28% {
+    --preloader-loading: 28%;
+  }
+  29% {
+    --preloader-loading: 29%;
+  }
+  30% {
+    --preloader-loading: 30%;
+  }
+  31% {
+    --preloader-loading: 31%;
+  }
+  32% {
+    --preloader-loading: 32%;
+  }
+  33% {
+    --preloader-loading: 33%;
+  }
+  34% {
+    --preloader-loading: 34%;
+  }
+  35% {
+    --preloader-loading: 35%;
+  }
+  36% {
+    --preloader-loading: 36%;
+  }
+  37% {
+    --preloader-loading: 37%;
+  }
+  38% {
+    --preloader-loading: 38%;
+  }
+  39% {
+    --preloader-loading: 39%;
+  }
+  40% {
+    --preloader-loading: 40%;
+  }
+  41% {
+    --preloader-loading: 41%;
+  }
+  42% {
+    --preloader-loading: 42%;
+  }
+  43% {
+    --preloader-loading: 43%;
+  }
+  44% {
+    --preloader-loading: 44%;
+  }
+  45% {
+    --preloader-loading: 45%;
+  }
+  46% {
+    --preloader-loading: 46%;
+  }
+  47% {
+    --preloader-loading: 47%;
+  }
+  48% {
+    --preloader-loading: 48%;
+  }
+  49% {
+    --preloader-loading: 49%;
+  }
+  50% {
+    --preloader-loading: 50%;
+  }
+  51% {
+    --preloader-loading: 51%;
+  }
+  52% {
+    --preloader-loading: 52%;
+  }
+  53% {
+    --preloader-loading: 53%;
+  }
+  54% {
+    --preloader-loading: 54%;
+  }
+  55% {
+    --preloader-loading: 55%;
+  }
+  56% {
+    --preloader-loading: 56%;
+  }
+  57% {
+    --preloader-loading: 57%;
+  }
+  58% {
+    --preloader-loading: 58%;
+  }
+  59% {
+    --preloader-loading: 59%;
+  }
+  60% {
+    --preloader-loading: 60%;
+  }
+  61% {
+    --preloader-loading: 61%;
+  }
+  62% {
+    --preloader-loading: 62%;
+  }
+  63% {
+    --preloader-loading: 63%;
+  }
+  64% {
+    --preloader-loading: 64%;
+  }
+  65% {
+    --preloader-loading: 65%;
+  }
+  66% {
+    --preloader-loading: 66%;
+  }
+  67% {
+    --preloader-loading: 67%;
+  }
+  68% {
+    --preloader-loading: 68%;
+  }
+  69% {
+    --preloader-loading: 69%;
+  }
+  70% {
+    --preloader-loading: 70%;
+  }
+  71% {
+    --preloader-loading: 71%;
+  }
+  72% {
+    --preloader-loading: 72%;
+  }
+  73% {
+    --preloader-loading: 73%;
+  }
+  74% {
+    --preloader-loading: 74%;
+  }
+  75% {
+    --preloader-loading: 75%;
+  }
+  76% {
+    --preloader-loading: 76%;
+  }
+  77% {
+    --preloader-loading: 77%;
+  }
+  78% {
+    --preloader-loading: 78%;
+  }
+  79% {
+    --preloader-loading: 79%;
+  }
+  80% {
+    --preloader-loading: 80%;
+  }
+  81% {
+    --preloader-loading: 81%;
+  }
+  82% {
+    --preloader-loading: 82%;
+  }
+  83% {
+    --preloader-loading: 83%;
+  }
+  84% {
+    --preloader-loading: 84%;
+  }
+  85% {
+    --preloader-loading: 85%;
+  }
+  86% {
+    --preloader-loading: 86%;
+  }
+  87% {
+    --preloader-loading: 87%;
+  }
+  88% {
+    --preloader-loading: 88%;
+  }
+  89% {
+    --preloader-loading: 89%;
+  }
+  90% {
+    --preloader-loading: 90%;
+  }
+  91% {
+    --preloader-loading: 91%;
+  }
+  92% {
+    --preloader-loading: 92%;
+  }
+  93% {
+    --preloader-loading: 93%;
+  }
+  94% {
+    --preloader-loading: 94%;
+  }
+  95% {
+    --preloader-loading: 95%;
+  }
+  96% {
+    --preloader-loading: 96%;
+  }
+  97% {
+    --preloader-loading: 97%;
+  }
+  98% {
+    --preloader-loading: 98%;
+  }
+  99% {
+    --preloader-loading: 99%;
+  }
+  100% {
+    --preloader-loading: 100%;
+  }
 }

@@ -6,6 +6,7 @@ interface ISubmitButtonProps {
   padding: string;
   minWidth: string;
   maxHeight: string;
+  onClick?: Function;
 }
 
 const SubmitButton: React.FC<ISubmitButtonProps> = ({
@@ -14,6 +15,7 @@ const SubmitButton: React.FC<ISubmitButtonProps> = ({
   minWidth,
   maxHeight,
   padding,
+  onClick,
 }) => {
   const buttonStyles = {
     padding: padding,
@@ -23,12 +25,22 @@ const SubmitButton: React.FC<ISubmitButtonProps> = ({
 
   return (
     <>
-      <button
-        className={`${className} button-submit`}
-        style={buttonStyles}
-        type="submit">
-        {buttonText}
-      </button>
+      {!onClick ? (
+        <button
+          className={`${className} button-submit`}
+          style={buttonStyles}
+          type="submit">
+          {buttonText}
+        </button>
+      ) : (
+        <button
+          className={`${className} button-submit`}
+          style={buttonStyles}
+          type="submit"
+          onClick={() => onClick()}>
+          {buttonText}
+        </button>
+      )}
     </>
   );
 };

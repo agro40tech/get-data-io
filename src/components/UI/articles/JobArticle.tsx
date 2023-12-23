@@ -12,6 +12,7 @@ interface IJobArticle {
   articleTitle: string;
   typeArticleItem: enumTypesArticleItem;
   accentClassName?: string;
+  loading: boolean;
 }
 
 const JobArticle: React.FC<IJobArticle> = ({
@@ -19,6 +20,7 @@ const JobArticle: React.FC<IJobArticle> = ({
   articleTitle,
   typeArticleItem,
   accentClassName,
+  loading,
 }) => {
   const arrDataArticle: React.ReactNode[] = [];
 
@@ -40,16 +42,18 @@ const JobArticle: React.FC<IJobArticle> = ({
     }
   });
 
+  const className = accentClassName
+    ? `job-info__article ${accentClassName}`
+    : "job-info__article";
+
   return (
     <>
       <h3 className="job-info__article-title">{articleTitle}</h3>
-      <article
-        className={`${
-          accentClassName
-            ? `job-info__article ${accentClassName}`
-            : "job-info__article"
-        }`}>
-        <ul className="article__list">{arrDataArticle}</ul>
+
+      <article className={className}>
+        <ul className={loading ? "article__list preloader" : "article__list"}>
+          {arrDataArticle}
+        </ul>
       </article>
     </>
   );

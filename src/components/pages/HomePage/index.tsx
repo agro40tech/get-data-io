@@ -3,6 +3,11 @@ import { FC } from "react";
 import "./index.css";
 import SubmitButton from "@/components/UI/buttons/SubmitButton";
 
+const onHandlerSubmit = () => {
+  const vacansys: any[] = [];
+  localStorage.setItem("vacansys", JSON.stringify(vacansys));
+};
+
 const HomePage: FC = () => {
   const redirectPage: string = "/viewjob";
 
@@ -31,6 +36,7 @@ const HomePage: FC = () => {
           padding="10px 20px"
           maxHeight="45px"
           minWidth="155px"
+          onClick={onHandlerSubmit}
         />
       </form>
     </section>
