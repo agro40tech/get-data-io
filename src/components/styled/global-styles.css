@@ -46,11 +46,7 @@ ul {
   color: var(--main-color-text);
   /* background-color: rgb(24, 24, 24); */
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 0, 36, 1) 43%,
-    rgba(80, 42, 94, 1) 100%
-  );
+  background: linear-gradient(0deg, rgba(2, 0, 36, 1) 43%, rgba(80, 42, 94, 1) 100%);
 }
 
 /* Прибиваем шапку к верху футер к низу */

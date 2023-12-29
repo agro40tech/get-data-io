@@ -1,54 +1,33 @@
 import { FC, useEffect, useState } from "react";
-import axios from "axios";
-
 import "./index.css";
-import JobArticle, {
-  enumTypesArticleItem,
-} from "@/components/UI/articles/JobArticle";
 
-import createArrs from "./CreateArrs";
+import createArrs from "./components/CreateArrs";
+import vacancyRequest from "@/components/services/https/get/VacansyRequest";
+import getCacheItemArray from "@/components/services/LocalStorage/GetItem-array";
+import MainArticles from "./components/Main-articles";
 
 const JobPage: FC = () => {
-  const [vacansysArr, setVacancysArr] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [vacansysArr, setVacancysArr] = useState(Array);
+  const [preloader, setPreloader] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
+        setPreloader(true);
+        const cacheVacancys = getCacheItemArray("vacansys");
 
-        const retString: any = localStorage.getItem("vacansys");
-        const retArr = JSON.parse(retString);
-
-        if (!retArr || retArr.length === 0) {
-          const currentUrl = window.location.href;
-          const searchParams = new URLSearchParams(currentUrl.split("?")[1]);
-          const searchValue = searchParams.get("search");
-
+        if (!cacheVacancys || cacheVacancys.length === 0) {
           await new Promise((resolve) => setTimeout(resolve, 15000));
-
-          const response: any = await axios.get(
-            `https://api.hh.ru/vacancies?text=${searchValue}&per_page=100`,
-            {
-              headers: {
-                "User-Agent": "Get-Data-io/1.0 (volkovvova67@gmail.com)",
-              },
-            }
-          );
-          setVacancysArr(response.data.items);
-          localStorage.setItem("vacansys", JSON.stringify(response.data.items));
-          console.log("request successful");
+          await vacancyRequest(setVacancysArr);
         } else {
-          // Используем данные из localStorage
-          setVacancysArr(retArr);
+          setVacancysArr(cacheVacancys);
         }
       } catch (error) {
         console.error("Error request data api:", error);
       } finally {
-        setLoading(false);
+        setPreloader(false);
       }
     };
-
     fetchData();
   }, []);
 
@@ -57,52 +36,17 @@ const JobPage: FC = () => {
 
   return (
     <section className="main__job-info">
-      {/* <h2 className="job-info__title">
-        Мы собрали данные из {retArr.length} вакансий вот результаты:
-      </h2> */}
-      <ul className="job-info__list">
-        <li className="job-info__item item-vacancy">
-          <JobArticle
-            articleTitle="Вакансии"
-            arrData={arrVacancyLinks}
-            typeArticleItem={enumTypesArticleItem.titleLinks}
-            accentClassName="article-vacancy"
-            loading={loading}
-          />
-        </li>
-        <li className="job-info__item">
-          <JobArticle
-            articleTitle="Города вакансий"
-            arrData={arrCities}
-            typeArticleItem={enumTypesArticleItem.titleRepeats}
-            loading={loading}
-          />
-        </li>
-        <li className="job-info__item">
-          <JobArticle
-            articleTitle="Формат рабочего дня"
-            arrData={arrFormatJobs}
-            typeArticleItem={enumTypesArticleItem.titleRepeats}
-            loading={loading}
-          />
-        </li>
-        <li className="job-info__item">
-          <JobArticle
-            articleTitle="Опыт работы"
-            arrData={arrExpJob}
-            typeArticleItem={enumTypesArticleItem.titleRepeats}
-            loading={loading}
-          />
-        </li>
-        <li className="job-info__item">
-          <JobArticle
-            articleTitle="Зарплата в месяц"
-            arrData={arrSalary}
-            typeArticleItem={enumTypesArticleItem.titleRepeats}
-            loading={loading}
-          />
-        </li>
-      </ul>
+      <h2 className="job-info__title">
+        Мы собрали данные из {arrVacancyLinks.length} вакансий вот результаты:
+      </h2>
+      <MainArticles
+        arrCities={arrCities}
+        arrExpJob={arrExpJob}
+        arrFormatJobs={arrFormatJobs}
+        arrSalary={arrSalary}
+        arrVacancyLinks={arrVacancyLinks}
+        preloader={preloader}
+      />
     </section>
   );
 };

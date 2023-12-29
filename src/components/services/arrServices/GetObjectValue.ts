@@ -4,9 +4,7 @@ const getObjectValue = (obj: any, path: string) => {
   }
   const pathSegments = path.split(".");
   const result = pathSegments.reduce((currentObj, key) => {
-    return currentObj && currentObj[key] !== undefined
-      ? currentObj[key]
-      : undefined;
+    return currentObj && currentObj[key] !== undefined ? currentObj[key] : undefined;
   }, obj);
 
   return result;

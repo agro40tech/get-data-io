@@ -1,11 +1,11 @@
 import getObjectValue from "./GetObjectValue";
 
 const createSalary = (
-  element: any,
+  element: object,
   pathSalaryFrom: string,
   pathSalaryTo: string,
   pathSalaryCurrency: string
-) => {
+): string => {
   let salary = "Зарплата не указана";
   const salaryCurrency = getObjectValue(element, pathSalaryCurrency);
 
@@ -39,16 +39,11 @@ const createArrSalary = (
   pathSalaryFrom: string,
   pathSalaryTo: string,
   pathSalaryCurrency: string
-) => {
-  const resultArr: any[] = [];
+): string[] => {
+  const resultArr: string[] = [];
 
   propsArr.forEach((element) => {
-    const salary = createSalary(
-      element,
-      pathSalaryFrom,
-      pathSalaryTo,
-      pathSalaryCurrency
-    );
+    const salary = createSalary(element, pathSalaryFrom, pathSalaryTo, pathSalaryCurrency);
 
     return resultArr.push(salary);
   });
