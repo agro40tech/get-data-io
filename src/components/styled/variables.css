@@ -3,17 +3,18 @@
   --main-font-family: "Mulish";
 
   --logo-font-size: clamp(0.938rem, 0.875rem + 0.31vw, 1.25rem);
+  --logo-color-text: rgb(134, 70, 159);
   --main-font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
 
   --main-font-weight: 500;
 
-  --main-color-text: white;
-  --main-background-color: #2f1938;
-  --accent-color-text: rgb(199, 196, 44);
+  --main-color-text: rgb(0, 0, 0);
+  --main-background-color: #f0f0f0;
+  --accent-color-text: rgb(165, 222, 8);
   --scrollbar-color: rgba(143, 143, 143, 0.3);
 
-  --arctcle-background-color: rgba(86, 86, 86, 0.2);
-  --article-citys-repeats-bcg-color: rgba(134, 70, 159, 0.7);
+  --arctcle-background-color: #ffffff;
+  --article-citys-repeats-bcg-color: rgba(134, 70, 159, 0.6);
 
   --preloader-loading: 0%;
 }

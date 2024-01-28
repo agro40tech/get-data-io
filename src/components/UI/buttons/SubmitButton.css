@@ -2,6 +2,7 @@
   font-family: inherit;
   font-size: inherit;
   color: inherit;
+  line-height: 15px;
   background-color: transparent;
   border: 2px solid var(--main-color-text);
   border-radius: 10px;

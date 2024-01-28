@@ -23,7 +23,7 @@
   min-width: clamp(18.75rem, 10rem + 43.75vw, 62.5rem);
   max-height: 70px;
   padding: 20px;
-  border: 0;
+  border: 1px solid black;
   border-radius: 10px;
   font-family: inherit;
   font-size: clamp(1.25rem, 1.188rem + 0.31vw, 1.563rem);

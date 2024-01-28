@@ -11,6 +11,7 @@ const vacancyRequest = async (setArr: Function) => {
 
   await setArr(response.items);
   localStorage.setItem("vacansys", JSON.stringify(response.items));
+  localStorage.setItem("request", JSON.stringify(searchValue));
 
   console.log(`request to api successful: Value[${searchValue}]`);
 };

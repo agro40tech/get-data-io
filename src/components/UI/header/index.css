@@ -8,7 +8,7 @@
 .header__title-link {
   font-family: var(--accent-font-family);
   font-size: var(--logo-font-size);
-  color: var(--accent-color-text);
+  color: var(--logo-color-text);
 }
 
 .nav-menu__list {

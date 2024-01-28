@@ -9,4 +9,4 @@
 Так же необходимо написать сервис CreateArr для сбора массива или использовать из уже имеющихся серивсов:
 
 - CreateArr-titles-repeats(Собирает массив из объектов такого вида `[{name: string, repeats: number, top?: boolean}]`)
-- CreateArr-titles-links(Собирает массив из объектов такого вида `[{name: string, link?: string}]`)
+- CreateArr-titles-links(Собирает массив из объектов такого вида `[{name: string, link: string}]`)

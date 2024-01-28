@@ -6,6 +6,7 @@ import SubmitButton from "@/components/UI/buttons/SubmitButton";
 const onHandlerSubmit = () => {
   const vacansys: any[] = [];
   localStorage.setItem("vacansys", JSON.stringify(vacansys));
+  localStorage.setItem("request", JSON.stringify(""));
 };
 
 const HomePage: FC = () => {

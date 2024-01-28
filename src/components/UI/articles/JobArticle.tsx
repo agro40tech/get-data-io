@@ -27,14 +27,10 @@ const JobArticle: React.FC<IJobArticle> = ({
   arrData.forEach((element, index) => {
     switch (typeArticleItem) {
       case enumTypesArticleItem.titleRepeats:
-        arrDataArticle.push(
-          <ItemArticleTitleRepeats element={element} key={index} />
-        );
+        arrDataArticle.push(<ItemArticleTitleRepeats element={element} key={index} />);
         break;
       case enumTypesArticleItem.titleLinks:
-        arrDataArticle.push(
-          <ItemArticleTitleLinks element={element} key={index} />
-        );
+        arrDataArticle.push(<ItemArticleTitleLinks element={element} key={index} />);
         break;
       default:
         console.log("error");
@@ -42,18 +38,14 @@ const JobArticle: React.FC<IJobArticle> = ({
     }
   });
 
-  const className = accentClassName
-    ? `job-info__article ${accentClassName}`
-    : "job-info__article";
+  const className = accentClassName ? `job-info__article ${accentClassName}` : "job-info__article";
 
   return (
     <>
       <h3 className="job-info__article-title">{articleTitle}</h3>
 
       <article className={className}>
-        <ul className={loading ? "article__list preloader" : "article__list"}>
-          {arrDataArticle}
-        </ul>
+        <ul className={loading ? "article__list preloader" : "article__list"}>{arrDataArticle}</ul>
       </article>
     </>
   );

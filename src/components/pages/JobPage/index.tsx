@@ -34,11 +34,19 @@ const JobPage: FC = () => {
   const { arrCities, arrExpJob, arrFormatJobs, arrSalary, arrVacancyLinks } =
     createArrs(vacansysArr);
 
+  const searchValue = localStorage.getItem("request");
+
   return (
     <section className="main__job-info">
-      <h2 className="job-info__title">
-        Мы собрали данные из {arrVacancyLinks.length} вакансий вот результаты:
-      </h2>
+      <div className="job-info__aside-article-wrapper">
+        <article className="job-info__aside-article">
+          <span className="aside-article__span">Нашлось вакансий: {vacansysArr.length}</span>
+          <span className="aside-article__span">По вашему запросу: {searchValue}</span>
+        </article>
+        <article className="job-info__aside-article">
+          <span className="aside-article__span">Фильтры</span>
+        </article>
+      </div>
       <MainArticles
         arrCities={arrCities}
         arrExpJob={arrExpJob}
