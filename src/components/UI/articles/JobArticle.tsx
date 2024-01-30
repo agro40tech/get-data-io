@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./JobArticle.css";
 import ItemArticleTitleLinks from "./items/ItemArticle-titles-links";
 import ItemArticleTitleRepeats from "./items/ItemArticle-titles-repeats";
@@ -13,6 +14,7 @@ interface IJobArticle {
   typeArticleItem: enumTypesArticleItem;
   accentClassName?: string;
   loading: boolean;
+  hashArr?: string;
 }
 
 const JobArticle: React.FC<IJobArticle> = ({
@@ -21,6 +23,7 @@ const JobArticle: React.FC<IJobArticle> = ({
   typeArticleItem,
   accentClassName,
   loading,
+  hashArr,
 }) => {
   const arrDataArticle: React.ReactNode[] = [];
 
@@ -42,7 +45,13 @@ const JobArticle: React.FC<IJobArticle> = ({
 
   return (
     <>
-      <h3 className="job-info__article-title">{articleTitle}</h3>
+      {hashArr ? (
+        <Link to={{ pathname: "/viewArticle", hash: hashArr }}>
+          <h3 className="job-info__article-title">{articleTitle}</h3>
+        </Link>
+      ) : (
+        <h3 className="job-info__article-title">{articleTitle}</h3>
+      )}
 
       <article className={className}>
         <ul className={loading ? "article__list preloader" : "article__list"}>{arrDataArticle}</ul>

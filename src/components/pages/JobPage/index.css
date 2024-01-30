@@ -7,27 +7,32 @@
 .job-info__aside-article-wrapper {
   display: flex;
   flex-direction: column;
+  grid-column-start: 1;
   gap: 15px;
   margin-top: 40px;
 }
 
-.job-info__aside-article {
+.article {
   display: flex;
   flex-direction: column;
   align-self: start;
-  max-width: 350px;
+  max-width: 360px;
   width: 100%;
   gap: 15px;
   background-color: var(--arctcle-background-color);
   padding: 20px;
   border-radius: 10px;
-  grid-column-start: 1;
   font-size: 18px;
 }
 
-.aside-article__span {
+.article__span {
   font-family: inherit;
   font-weight: 500;
+}
+
+.bold {
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .job-info__list {
@@ -54,6 +59,12 @@
 .item-vacancy {
   grid-column-start: span 2;
   max-width: unset;
+}
+
+.job-info__botom-article-wrapper {
+  display: flex;
+  gap: 20px;
+  grid-column-start: span 2;
 }
 
 @media (max-width: 1400px) {

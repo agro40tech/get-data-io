@@ -28,6 +28,7 @@ const MainArticles: React.FC<IMainArticlesProps> = ({
           arrData={arrCities}
           typeArticleItem={enumTypesArticleItem.titleRepeats}
           loading={preloader}
+          hashArr="citys"
         />
       </li>
       <li className="job-info__item item-canvas">
@@ -42,6 +43,7 @@ const MainArticles: React.FC<IMainArticlesProps> = ({
           arrData={arrFormatJobs}
           typeArticleItem={enumTypesArticleItem.titleRepeats}
           loading={preloader}
+          hashArr="formatJob"
         />
       </li>
       <li className="job-info__item item-canvas">
@@ -56,6 +58,7 @@ const MainArticles: React.FC<IMainArticlesProps> = ({
           arrData={arrExpJob}
           typeArticleItem={enumTypesArticleItem.titleRepeats}
           loading={preloader}
+          hashArr="expJob"
         />
       </li>
       <li className="job-info__item item-canvas">
@@ -70,6 +73,7 @@ const MainArticles: React.FC<IMainArticlesProps> = ({
           arrData={arrSalary}
           typeArticleItem={enumTypesArticleItem.titleRepeats}
           loading={preloader}
+          hashArr="salary"
         />
       </li>
       <li className="job-info__item item-canvas">
@@ -85,6 +89,7 @@ const MainArticles: React.FC<IMainArticlesProps> = ({
           typeArticleItem={enumTypesArticleItem.titleLinks}
           accentClassName="article-vacancy"
           loading={preloader}
+          hashArr="vacansys"
         />
       </li>
     </ul>
